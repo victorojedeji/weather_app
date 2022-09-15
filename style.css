@@ -18,4 +18,11 @@ body {
     height: 60vh;
     border: 1px solid #FFFFFF;
     background: #FFFFFF;
+    border-radius: .5em;
+}
+
+.header-txt {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: capitalize;
 }
