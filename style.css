@@ -184,7 +184,22 @@ td {
         justify-content: space-between;
     }
 
+    .information {
+        width: fit-content;
+        padding: 1em;
+    }
+
     .flex-two {
         width: 40%;
+    } 
+
+    .flex-two {
+    border-top-right-radius: 0em;
+    border-top-left-radius: 0em;
     }
+
+    .search-icon-wrapper {
+        border-top-right-radius: 0em;
+    }
+
 }
