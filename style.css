@@ -138,13 +138,36 @@ body {
 .search-suggestion {
     width: 100%;
     padding: .5em;
-    border: 1px solid black;
     height: 200px;
-    overflow: auto;
+    overflow-x: auto;
+    border-bottom: 1px solid #767676;
+    margin-bottom: 2em;
 }
 
 .suggestion {
     font-size: 1.3rem;
     padding: .5em;
-    border: 1px solid black;
 }
+
+.suggestion:hover {
+    background: white;
+}
+
+.weather-details {
+    width: 100%;
+}
+
+.details-title {
+    font-size: 1.3rem;
+    margin-bottom: 1em;
+}
+
+table {
+    width: 100%;
+    font-size: 1rem;
+}
+
+td {
+    padding: .5em 0;
+}
+
