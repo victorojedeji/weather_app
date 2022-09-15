@@ -123,20 +123,34 @@ body {
     border-top: none;
     border-right: none;
     border-left: none;
+    border-bottom: 1px solid #767676;
     outline: none;
     background: none;
     width: 70%;
     font-size: 1.2rem;
     padding-bottom: .3em;
     margin-right: auto;
+    transition: all .2s ease-in;
 }
+
+#search:focus {
+    border-bottom: 4px solid #ffffff;
+}
+
+/* #search::after {
+    width: 100%;
+    height: 2px;
+    background: white;
+    display: block;
+} */
 
 .search-img {
     width: 2rem;
     filter: invert(70%);
+    transition: all .2s ease-in;
 }
 
-.search-img:hover {
+.search-icon-wrapper:hover .search-img {
     filter: invert(100%);
 }
 
