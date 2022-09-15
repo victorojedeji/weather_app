@@ -112,7 +112,7 @@ body {
 .search-icon-wrapper {
     width: 20%;
     padding: 1em;
-    background: blue;
+    background: #193723;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,6 +133,11 @@ body {
 
 .search-img {
     width: 2rem;
+    filter: invert(70%);
+}
+
+.search-img:hover {
+    filter: invert(100%);
 }
 
 .search-suggestion {
