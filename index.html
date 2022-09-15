@@ -5,18 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
     <title>weather app</title>
 </head>
 <body>
-    <main class="main">
-        <h1 class="header-txt">weather app</h1>
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <div class="button-wrapper">
-            <button class="check-weather">check weather</button>
-            <p class="or">or</p>
-            <button class="auto-locate">Get user location</button>
-        </div>
-    </main>
+    <section class="container">
+        <section class="flex-one">
+            <header class="header">
+                <h1 class="header-text">the.weather</h1>
+            </header>
+            
+            <div class="information">
+               <h1 class="deg">16</h1><span class="deg-symbol">°</span>
+               
+               <div class="city-date-time">
+                   <p class="city">LONDON</p>
+                   <div class="date-time">
+                       <p class="time">1-57 PM</p>
+                       <span class="dash">-</span>
+                       <p>Thursday,15 Sep '22</p>
+                   </div>
+               </div>
+               
+               <div class="weather-symbol">
+                    <img class="weather-icon" src="svg/cloudy.svg" alt="weather icon" />
+                    <p class="weather-type">Cloudy</p>
+               </div>
+            </div>
+        </section>
+        
+        <section class="flex-two">
+                <div class="search-wrapper">
+                    <input type="text" name="search" id="search" value="" placeholder="Another location"/>
+                    <div class="search-icon-wrapper">
+                        <img class="search-img" src="svg/search.svg" alt="search" />
+                    </div>
+
+                </div>
+                
+                <div class="search-suggestion">
+                    <p class="suggestion">Birmingham</p>
+                    <p class="suggestion">New york</p>
+                    <p class="suggestion">California</p>
+                    <p class="suggestion">Lagos</p>
+                    <p class="suggestion">Manchester</p>
+                </div>
+                
+                <div class="weather-details">
+                    <p class="details-title">Weather details</p>
+                    <table>
+                        <tr>
+                            <td class="cloudy">Cloudy</td>
+                            <td class="cloudy-value">86%</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="humidity">Humidity</td>
+                            <td class="humidity-value">62%</td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="wind">Wind</td>
+                            <td class="wind-value">8km/h</td>
+                        </tr>
+                    </table> 
+                </div>
+        </section>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

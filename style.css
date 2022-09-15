@@ -6,23 +6,145 @@
 
 body {
     font-size: 1rem;
+}
+
+.container {
+    background-image: url('images/storm.jpg');
+    background-pisition: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1em;
+}
+
+.flex-one {
+    padding: .5em;
+}
+
+.header {
+    width: 100%;
+}
+
+.header-text{
+    font-size: 1.5rem;
+    margin-bottom: 4em;
+}
+
+.information {
+    display: flex;
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    backdrop-filter: 10px;
+    padding-bottom: .4em;
+    padding-right: .2em;
+    border-radius: .3em;
+    margin-bottom: 4em;
+    width: 100%;
+}
+
+.deg {
+    font-size: 6rem;
+    margin-bottom: -.2em;
+}
+
+.deg-symbol {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: .2em;
+}
+
+.city-date-time {
+    display: flex;
+    flex-direction: column;
+    margin-right: .3em;
+}
+
+.city {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: justify;
+    margin-bottom: .2em;
+}
+
+.date-time {
+    display: flex;
+    font-size: .8rem;
+}
+
+.time {
+    text-align: justify;
+}
+
+.weather-icon {
+    width: 4.5rem;
+    margin-bottom: .2em;
+}
+
+.search-img {
+    width: 1rem;
+}
+ 
+.weather-type {
+    text-align: center;
+}
+
+.flex-two {
+    padding: .5em;
+    width: 100%;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+}
+
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2em;
+}
+
+.search-icon-wrapper {
+    width: 20%;
+    padding: 1em;
+    background: blue;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #24edd9;
+    border-top-right-radius: .5em;
 }
 
-.main {
-    min-width: 300px;
-    height: 60vh;
-    border: 1px solid #FFFFFF;
-    background: #FFFFFF;
-    border-radius: .5em;
+#search {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+    background: none;
+    width: 70%;
+    font-size: 1.2rem;
+    padding-bottom: .3em;
+    margin-right: auto;
 }
 
-.header-txt {
-    text-align: center;
-    font-size: 1.5rem;
-    text-transform: capitalize;
+.search-img {
+    width: 2rem;
+}
+
+.search-suggestion {
+    width: 100%;
+    padding: .5em;
+    border: 1px solid black;
+    height: 200px;
+    overflow: auto;
+}
+
+.suggestion {
+    font-size: 1.3rem;
+    padding: .5em;
+    border: 1px solid black;
 }
