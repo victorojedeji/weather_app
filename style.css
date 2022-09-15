@@ -171,3 +171,20 @@ td {
     padding: .5em 0;
 }
 
+@media (min-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: initial;
+    }
+
+    .flex-one {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .flex-two {
+        width: 40%;
+    }
+}
