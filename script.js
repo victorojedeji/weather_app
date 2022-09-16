@@ -1,17 +1,25 @@
-const searchInput = document.querySelector('#search');
+const searchInput = document.querySelector('#search'),
+suggestWrap = document.querySelector(".search-suggestion"),
+datalist = document.querySelector('.datalist');
+
+
+
 let url = 'https://api.teleport.org/api/cities/?search=';
 
 searchInput.addEventListener("input", async (e) => {
         let inputVal = e.target.value;
         let endPoint = url + inputVal;
         let result = await(await fetch(endPoint)).json();
+        datalist.innerHTML = '';
         let cities = result._embedded["city:search-results"];
-        let length = cities.length > 10 ? 10 : cities.length;
-        console.log(cities)
-        for(let j = 0; j < cities.length; j++) {
-           console.log(cities)
+        let length = cities.length > 5 ? 5 : cities.length;
+        
+        for(let j = 0; j < length; j++) {
+           let suggestionTag = document.createElement('option');
+           suggestionTag.value = cities[j].matching_full_name;
+           console.log(suggestionTag)
+           datalist.appendChild(suggestionTag);
         }
-        console.log(result);
 });
 
 
