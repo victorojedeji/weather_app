@@ -15,8 +15,8 @@ searchInput.addEventListener("input", async (e) => {
         
         for(let j = 0; j < length; j++) {
            let suggestionTag = document.createElement('p');
-           suggestionTag.classList.add('suggestion')
-           suggestionTag.addEventListener("click", clicked)
+           suggestionTag.classList.add('suggestion');
+           suggestionTag.addEventListener("click", clicked);
             suggestionTag.setAttribute('title', `${cities[j].matching_full_name}`);
            suggestionTag.textContent = cities[j].matching_full_name;
            
