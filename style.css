@@ -219,6 +219,13 @@ td {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.hide {
+    display: none;
+}
+
+.reveal {
+    display: block;
+}
 
 @media (min-width: 600px) {
     .container {

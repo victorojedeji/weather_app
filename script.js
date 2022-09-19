@@ -1,7 +1,8 @@
 const searchInput = document.querySelector('#search'),
-suggestWrap = document.querySelector(".search-suggestion");
+suggestWrap = document.querySelector(".search-suggestion"), 
+search = document.querySelector(".search-icon-wrapper");
 
-
+search.addEventListener("click", getCityInfo);
 
 let url = 'https://api.teleport.org/api/cities/?search=';
 
@@ -15,8 +16,8 @@ searchInput.addEventListener("input", async (e) => {
         
         for(let j = 0; j < length; j++) {
            let suggestionTag = document.createElement('p');
-           suggestionTag.classList.add('suggestion');
-           suggestionTag.addEventListener("click", clicked);
+           suggestionTag.classList.add('suggestion')
+           suggestionTag.addEventListener("click", clicked)
             suggestionTag.setAttribute('title', `${cities[j].matching_full_name}`);
            suggestionTag.textContent = cities[j].matching_full_name;
            
@@ -28,41 +29,39 @@ searchInput.addEventListener("input", async (e) => {
 function clicked(e) {
     let tagVal = e.target.getAttribute('title');
     searchInput.value = tagVal;
+    suggestWrap.innerHTML =
+                            `
+                            <p class="suggestion">Birmingham</p>
+                            <p class="suggestion">New york</p>
+                            <p class="suggestion">California</p>
+                            <p class="suggestion">Lagos</p>
+                            <p class="suggestion">Manchester</p>
+                            `
 }
 
 
 
+function getCityInfo() {
+    let city,
+    cityString = searchInput.value,
+    apiId = "a67a9ac089f9743696b7e7fdeaddd2e9";
+    
+    if(cityString.includes(',')) {
+        city = cityString.substring(0, cityString.indexOf(',')) + cityString.substring(cityString.lastIndexOf(','))
+    } else {
+        city = cityString;
+    }
+    
+    cityName = city.toLowerCase();
+    
+   let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiId}`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let apiId = "a67a9ac089f9743696b7e7fdeaddd2e9",
-// city = "ibadan";
-
-// let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}`;
-
-// fetch(api).then(res => res.json()).then(result => console.log(result));
+   fetch(api).then(res => res.json()).then(result => {
+        if(result.cod !== 200) {
+           alert('City not found!')
+           return;
+        }
+        console.log(result)
+       
+   });
+}
