@@ -2,7 +2,7 @@ const searchInput = document.querySelector('#search'),
 suggestWrap = document.querySelector(".search-suggestion"), 
 search = document.querySelector(".search-icon-wrapper");
 
-search.addEventListener("click", getCityInfo);
+search.addEventListener("click", getWeatherInfoByCity);
 
 let url = 'https://api.teleport.org/api/cities/?search=';
 
@@ -41,7 +41,7 @@ function clicked(e) {
 
 
 
-function getCityInfo() {
+function getWeatherInfoByCity() {
     let city,
     cityString = searchInput.value,
     apiId = "a67a9ac089f9743696b7e7fdeaddd2e9";
