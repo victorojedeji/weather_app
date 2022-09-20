@@ -38,6 +38,11 @@ function clicked(e) {
                             `
 }
 
+let shortMonthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+let date = new Date(),
+day = date.getDay();
+console.log(day)
+
 function getWeatherInfoByCity() {
     let city,
     cityString = searchInput.value,
@@ -49,9 +54,8 @@ function getWeatherInfoByCity() {
         city = cityString;
     }
     cityName = city.toLowerCase();
-
-   let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiId}`;
-   fetch(api).then(res => res.json()).then(result => {
+    let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiId}`;
+    fetch(api).then(res => res.json()).then(result => {
         if(result.cod !== 200) {
            alert('City not found!')
            return;
@@ -68,5 +72,7 @@ function getWeatherInfoByCity() {
         document.querySelector(".humidity-value").innerText = `${humidity}%`;
         document.querySelector(".wind-value").innerText = `${speed}km/h`;
         document.querySelector(".deg").innerText = feels_like.toFixed(0);
+        document.querySelector(".city").innerText = `${city}, ${country}`;
+        document.querySelector(".weather-type").innerText = description;
    });
 }
