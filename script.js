@@ -38,10 +38,13 @@ function clicked(e) {
                             `
 }
 
-let shortMonthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+let shortMonthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let date = new Date(),
-day = date.getDay();
-console.log(day)
+day = daysArr[date.getDay()],
+month = shortMonthsArr[date.getMonth()],
+year = date.getFullYear();
+console.log(day,month,year)
 
 function getWeatherInfoByCity() {
     let city,
