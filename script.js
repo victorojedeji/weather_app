@@ -57,5 +57,10 @@ function getWeatherInfoByCity() {
            return;
         }
         console.log(result)
+        const city = result.name;
+        const country = result.sys.country;
+        const {humidity, feels_like, temp} = result.main;
+        const {id, description} = result.weather[0];
+        const speed = result.wind.speed;
    });
 }
