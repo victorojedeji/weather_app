@@ -43,8 +43,9 @@ daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sa
 let date = new Date(),
 day = daysArr[date.getDay()],
 month = shortMonthsArr[date.getMonth()],
-year = date.getFullYear();
-console.log(day,month,year)
+year = date.getFullYear(),
+time = date.getTime();
+console.log(day,month,year,time)
 
 function getWeatherInfoByCity() {
     let city,
