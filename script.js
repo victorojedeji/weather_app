@@ -25,7 +25,6 @@ searchInput.addEventListener("input", async (e) => {
         }
 });
 
-
 function clicked(e) {
     let tagVal = e.target.getAttribute('title');
     searchInput.value = tagVal;
@@ -39,8 +38,6 @@ function clicked(e) {
                             `
 }
 
-
-
 function getWeatherInfoByCity() {
     let city,
     cityString = searchInput.value,
@@ -51,17 +48,14 @@ function getWeatherInfoByCity() {
     } else {
         city = cityString;
     }
-    
     cityName = city.toLowerCase();
-    
-   let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiId}`;
 
+   let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiId}`;
    fetch(api).then(res => res.json()).then(result => {
         if(result.cod !== 200) {
            alert('City not found!')
            return;
         }
         console.log(result)
-       
    });
 }
