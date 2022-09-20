@@ -50,7 +50,7 @@ function getWeatherInfoByCity() {
     }
     cityName = city.toLowerCase();
 
-   let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiId}`;
+   let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiId}`;
    fetch(api).then(res => res.json()).then(result => {
         if(result.cod !== 200) {
            alert('City not found!')
@@ -59,8 +59,14 @@ function getWeatherInfoByCity() {
         console.log(result)
         const city = result.name;
         const country = result.sys.country;
-        const {humidity, feels_like, temp} = result.main;
+        const {humidity, feels_like} = result.main;
+        const visibility = result.visibility;
         const {id, description} = result.weather[0];
         const speed = result.wind.speed;
+
+        document.querySelector(".visibilty-value").innerText = visibility;
+        document.querySelector(".humidity-value").innerText = `${humidity}%`;
+        document.querySelector(".wind-value").innerText = `${speed}km/h`;
+        document.querySelector(".deg").innerText = feels_like.toFixed(0);
    });
 }
