@@ -28,24 +28,23 @@ searchInput.addEventListener("input", async (e) => {
 function clicked(e) {
     let tagVal = e.target.getAttribute('title');
     searchInput.value = tagVal;
-    suggestWrap.innerHTML =
-                            `
-                            <p class="suggestion">Birmingham</p>
-                            <p class="suggestion">New york</p>
-                            <p class="suggestion">California</p>
-                            <p class="suggestion">Lagos</p>
-                            <p class="suggestion">Manchester</p>
+    suggestWrap.innerHTML = `
+                    <li class="suggestion static">London, England, United Kingdom</li>
+                    <li class="suggestion static">New York City, New York, United States</li>
+                    <li class="suggestion static">Sydney, New South Wales, Australia</li>
+                    <li class="suggestion static">Tokyo, Tokyo, Japan</li>
+                    <li class="suggestion static">Lagos, Lagos, Nigeria</li>
                             `
 }
 
-let shortMonthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-let date = new Date(),
-day = daysArr[date.getDay()],
-month = shortMonthsArr[date.getMonth()],
-year = date.getFullYear(),
-time = date.getTime();
-console.log(day,month,year,time)
+//let shortMonthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+//daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+//let date = new Date(),
+//day = daysArr[date.getDay()],
+//month = shortMonthsArr[date.getMonth()],
+//year = date.getFullYear(),
+//time = date.getTime();
+//console.log(day,month,year,time)
 
 function getWeatherInfoByCity() {
     let city,
@@ -71,12 +70,37 @@ function getWeatherInfoByCity() {
         const visibility = result.visibility;
         const {id, description} = result.weather[0];
         const speed = result.wind.speed;
+        
+        const timeRec = result.coord;
+        
+        //let time = new Date(timeRec).toLocaleString("en-US");
+        console.log(timeRec)
 
         document.querySelector(".visibilty-value").innerText = visibility;
         document.querySelector(".humidity-value").innerText = `${humidity}%`;
         document.querySelector(".wind-value").innerText = `${speed}km/h`;
         document.querySelector(".deg").innerText = feels_like.toFixed(0);
-        document.querySelector(".city").innerText = `${city}, ${country}`;
+        document.querySelector(".city").innerText = `${city}, ${country}`.toUpperCase();
         document.querySelector(".weather-type").innerText = description;
+        searchInput.value = "";
    });
+   
+    var loc = '35.731252, 139.730291' // Tokyo expressed as lat,lng tuple
+    var targetDate = new Date() // Current date/time of user computer
+    var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
+    var apikey = 'proven-verve-363219'
+    var apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + apikey
+    fetch(apicall).then(res => res.json()).then(call => console.log(call))
+}
+
+
+let staticList = document.getElementsByTagName("li")
+
+for(let i = 0; i < staticList.length; i++){
+    staticList[i].addEventListener("click", postLoc)
+}
+
+function postLoc(e) {
+    let el = e.target.innerText;
+    console.log(el)
 }
