@@ -102,5 +102,5 @@ for(let i = 0; i < staticList.length; i++){
 
 function postLoc(e) {
     let el = e.target.innerText;
-    console.log(el)
+    searchInput.value = el;
 }
